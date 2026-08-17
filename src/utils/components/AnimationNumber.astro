@@ -1,0 +1,33 @@
+---
+// src/components/Stats.astro
+---
+
+
+<div class="stats flex justify-center gap-10 mt-10">
+  <div class="stat text-center">
+    <span id="stat-experiencia" class="font-inter text-4xl     tabular-nums">0</span>
+    <p class="font-mono  text-muted mt-1 text-xl tracking-wide">AÑOS EXP.</p>
+  </div>
+
+  <div class="stat text-center">
+    <span id="stat-proyectos" class="font-inter text-4xl  tabular-nums">0</span>
+    <p class="font-mono text-muted text-xl  mt-1 tracking-wide">PROYECTOS</p>
+  </div>
+
+
+</div>
+
+<script>
+  import { CountUp } from 'countup.js';
+
+  const options = {
+    duration: 1.5,
+    useEasing: true,           // aplica la curva de suavizado interna de CountUp
+    enableScrollSpy: true,     // arranca solo, no hace falta IntersectionObserver
+    scrollSpyDelay: 150,       // pequeño respiro antes de empezar a contar
+    scrollSpyOnce: true,       // no se repite si vuelves a hacer scroll sobre él
+  };
+
+  new CountUp('stat-experiencia', 3, { ...options, suffix: '+' }).start();
+  new CountUp('stat-proyectos', 6, options).start();
+</script>
