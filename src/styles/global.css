@@ -5,6 +5,9 @@
 @import '@fontsource-variable/jetbrains-mono/wght.css';
 
 @theme {
+  --color-primary: #0a0e14;
+  --color-secondary: #131822;
+  --color-terciary: #1a2029;
   --color-base: #0a0e14; /* fondo primario */
   --color-surface: #131822; /* fondo secundario */
   --color-ink: #eaeaea; /* texto primario */
@@ -12,6 +15,11 @@
   --color-accent: #10e0a0; /* esmeralda */
   --color-iris: #8b7bff; /* violeta */
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui;
+  --font-inter: 'Inter', ui-sans-serif, system-ui;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+@layer base {
+  body {
+    @apply bg-primary font-inter px-5;
+  }
 }

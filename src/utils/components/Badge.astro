@@ -1,0 +1,22 @@
+---
+import Circle from '../icons/Circle.astro'
+
+
+interface Props {
+    title: string
+    icon?: string
+}
+
+const {title} = Astro.props
+
+
+---
+<div class="border-2 flex items-center justify-center gap-2 border-accent font-mono w-fit px-6  rounded-2xl text-accent text-xs text-center">
+    <Circle/>
+    <span >
+        {title}
+    
+    </span>
+
+</div>
+
