@@ -1,4 +1,32 @@
 ---
+import Angular from "../utils/icons/AngularIcon.astro"
+import AstroIcon from "../utils/icons/AstroIcon.astro"
+import JavaScriptIcon from "../utils/icons/JavaScriptIcon.astro"
+import TypeScriptIcon from "../utils/icons/TypeScriptIcon.astro"
+import GitIcon from "../utils/icons/GitIcon.astro"
+import GitHubIcon from "../utils/icons/GitHubIcon.astro"
+import Html5Icon from "../utils/icons/Html5Icon.astro"
+import TailwindIcon from "../utils/icons/TailwindIcon.astro"
+import SassIcon from "../utils/icons/SassIcon.astro"
+import NodejsIcon from "../utils/icons/NodejsIcon.astro"
+import MongodbIcon from "../utils/icons/MongodbIcon.astro"
+
+
+
+
+
+const stackTecnologies = [{ Icon: Angular}, { Icon: AstroIcon},{ Icon: JavaScriptIcon}, { Icon: TypeScriptIcon}, {Icon: TailwindIcon},{ Icon: GitIcon}, { Icon: GitHubIcon},{ Icon: Html5Icon}, { Icon: SassIcon} , {Icon: NodejsIcon}]
+
 
 ---
-
+<div class="  flex items-center flex-col mt-5 gap-4">
+    <p class="text-iris font-medium">STACK TECNICO</p>
+    <h3 class="text-2xl font-bold">Tecnologías que Domino</h3>
+  <div class="flex flex-wrap justify-center gap-3">
+    {stackTecnologies.map(({  Icon }) => (
+      <span class="flex items-center gap-2  border-accent px-3 py-2 ">
+        <Icon class="w-6 h-6" />
+      </span>
+    ))}
+  </div>
+</div>
