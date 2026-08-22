@@ -17,9 +17,43 @@
 
   --font-inter: 'Inter', ui-sans-serif, system-ui;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-bg-primary: #0a0e14;
+  --color-bg-secondary: #131822;
+  --color-text-primary: #eaeaea;
+  --color-accent-emerald: #10e0a0;
+  --color-accent-violet: #8b7bff;
+
+  /* ---- Neutros derivados (los 4 que te faltaban) ---- */
+  --color-border: color-mix(in oklab, var(--color-text-primary) 12%, transparent);
+  --color-border-strong: color-mix(in oklab, var(--color-text-primary) 18%, transparent);
+  --color-surface-hover: color-mix(in oklab, var(--color-text-primary) 8%, transparent);
+  --color-text-muted: color-mix(in oklab, var(--color-text-primary) 65%, transparent);
+  /* 65% sobre #0A0E14 ≈ 6.9:1 de contraste — cumple WCAG AA */
+
+  /* ---- Alias con nomenclatura Flowbite ---- */
+  --color-default: var(--color-border);
+  --color-default-medium: var(--color-border-strong);
+  --color-buffer: var(--color-bg-primary);
+  --color-heading: var(--color-text-primary);
+  --color-body: var(--color-text-muted);
+
+  --color-neutral-secondary-medium: var(--color-bg-secondary);
+  --color-neutral-tertiary-medium: var(--color-surface-hover);
+  --color-neutral-tertiary: color-mix(in oklab, var(--color-accent-emerald) 45%, transparent);
+
+  --color-fg-brand-strong: var(--color-accent-emerald);
+  --color-brand-softer: color-mix(in oklab, var(--color-accent-emerald) 12%, transparent);
+  --color-brand-subtle: color-mix(in oklab, var(--color-accent-emerald) 30%, transparent);
+
+  /* ---- Radios y sombras ---- */
+  --radius-base: 0.375rem;
 }
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-primary font-inter m-auto px-6 py-3 text-ink;
+    @apply bg-primary font-inter m-auto px-6 py-3 text-ink mt-18;
   }
 }
