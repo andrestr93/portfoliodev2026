@@ -2,15 +2,29 @@
 
 import Hero from '../components/Hero.astro';
 import TechStack from '../components/TechStack.astro';
+import Experience from '../components/Experience.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Experience from './experience.astro';
+import SectionContainer from '../layouts/SectionContainer.astro';
+
 
 
 ---
 
 <BaseLayout>
-	<Hero/>
-	<TechStack/>
-	<Experience/>
+	<section class="flex flex-col gap-10">
+		<SectionContainer id="about">
+			<Hero/>
+		</SectionContainer>
+	
+		<SectionContainer id="stack">
+			<TechStack />
+		</SectionContainer>
+	
+		<SectionContainer id="experience">
+			<Experience/>
+		</SectionContainer>
+
+	</section>
+
 </BaseLayout>
 
