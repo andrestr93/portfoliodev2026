@@ -55,5 +55,11 @@
   }
   body {
     @apply bg-primary font-inter m-auto px-6 py-3 text-ink mt-18;
+    span {
+      @apply text-iris font-mono  tracking-wider;
+    }
+    h2 {
+      @apply text-2xl font-bold;
+    }
   }
 }
