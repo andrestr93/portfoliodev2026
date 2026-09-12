@@ -1,14 +1,17 @@
 ---
+import type { BadgeItem } from "../interfaces/badgeItem.interface";
 import "../styles/global.css";
 import AnimationNumber from "../utils/components/AnimationNumber.astro";
 import Badge from "../utils/components/Badge.astro";
 import ImageProfile from "./ImageProfile.astro";
 
+const item: BadgeItem = {title: 'Disponible'}
+
 ---
 
 <div class="text-center flex items-center justify-center  flex-col gap-5  text-4xl px-5 py-2 font-bold  ">
    
-    <Badge title="Disponible"/>
+    <Badge badgeItem={item}/>
    
     <h1 class= "bg-linear-to-r from-(--color-accent) to-(--color-iris) bg-clip-text text-transparent uppercase ">Desarrollador Front</h1>
 
