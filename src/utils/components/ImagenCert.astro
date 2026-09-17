@@ -1,0 +1,11 @@
+---
+
+import { Image } from "astro:assets";
+
+const {url , alt} = Astro.props
+
+---
+
+
+    <Image  src={url} alt= {alt}   width={400}
+    loading="lazy" />

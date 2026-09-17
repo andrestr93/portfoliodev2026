@@ -1,13 +1,17 @@
 ---
+import type { BadgeItem } from '../../interfaces/badgeItem.interface'
 import Circle from '../icons/Circle.astro'
 
-
 interface Props {
-    title: string
-    icon?: string
+
+    badgeItem: BadgeItem
 }
 
-const {title} = Astro.props
+
+const {badgeItem} = Astro.props
+
+const {title  } = badgeItem
+
 
 
 ---
@@ -15,7 +19,6 @@ const {title} = Astro.props
     <Circle/>
     <span class="text-accent-emerald" >
         {title}
-    
     </span>
 
 </div>

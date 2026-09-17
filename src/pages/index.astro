@@ -2,17 +2,17 @@
 
 import Hero from '../components/Hero.astro';
 import TechStack from '../components/TechStack.astro';
-import Experience from '../components/Experience.astro';
+import Experience from '../components/experience/Experience.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionContainer from '../layouts/SectionContainer.astro';
 import Contact from '../components/Contact.astro';
-
-
-
+import Education from '../components/education/Education.astro';
+import { experiences } from '../utils/dates';
+import { education } from '../utils/dates';
 ---
 
 <BaseLayout>
-	<section class="flex flex-col gap-10">
+	<section class="flex flex-col gap-10" >
 		<SectionContainer id="about">
 			<Hero/>
 		</SectionContainer>
@@ -22,9 +22,12 @@ import Contact from '../components/Contact.astro';
 		</SectionContainer>
 	
 		<SectionContainer id="experience">
-			<Experience/>
+			<Experience experiences = {experiences}/>
 		</SectionContainer>
-		<SectionContainer id="contact">
+		<SectionContainer id="education">
+			<Education education = {education}/>
+		</SectionContainer>
+		<SectionContainer class:list={'items-center'} id="contact">
 			<Contact/>
 		</SectionContainer>
 

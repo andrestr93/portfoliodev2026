@@ -1,0 +1,46 @@
+[
+    {
+        "id": "disid-2024",
+        "company": "Disid Corporation SL",
+        "role": "Desarrollador front end",
+        "startDate": "2024-09",
+        "endDate": null,
+        "location": "Valencia, Comunidad Valenciana",
+        "achievements": [
+            "Creación de aplicaciones a medida con Angular, TypeScript, HTML y CSS.",
+            "Elaboración de código testeable y realización de tests unitarios y de integración.",
+            "Adaptación de diseños gráficos de PSD y Figma a código HTML y CSS.",
+            "Coordinación con equipos de backend para asegurar una integración eficiente y funcional.",
+            "Gestión de tareas en Jira y Confluence dentro de un flujo colaborativo con Git."
+        ],
+        "technologies": [
+            "Angular",
+            "TypeScript",
+            "HTML5",
+            "SASS",
+            "Git",
+            "Jira"
+        ]
+    },
+    {
+        "id": "cargoffer-2023",
+        "company": "Cargoffer",
+        "role": "Desarrollador full stack",
+        "startDate": "2023-05",
+        "endDate": "2024-05",
+        "location": "Pontevedra, Galicia",
+        "achievements": [
+            "Contribución en un proyecto de desarrollo con Angular y TypeScript.",
+            "Desarrollo, mantenimiento y mejora de las funcionalidades del producto.",
+            "Adaptación de diseños gráficos de PSD y Figma a código HTML y SCSS.",
+            "Integración de sistemas de control de versiones con Git en el flujo de trabajo."
+        ],
+        "technologies": [
+            "Angular",
+            "TypeScript",
+            "Node.js",
+            "SCSS",
+            "Git"
+        ]
+    }
+]
