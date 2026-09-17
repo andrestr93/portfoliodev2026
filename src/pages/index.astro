@@ -8,6 +8,7 @@ import SectionContainer from '../layouts/SectionContainer.astro';
 import Contact from '../components/Contact.astro';
 import Education from '../components/education/Education.astro';
 import { experiences } from '../utils/dates';
+import { education } from '../utils/dates';
 ---
 
 <BaseLayout>
@@ -24,9 +25,9 @@ import { experiences } from '../utils/dates';
 			<Experience experiences = {experiences}/>
 		</SectionContainer>
 		<SectionContainer id="education">
-			<Education/>
+			<Education education = {education}/>
 		</SectionContainer>
-		<SectionContainer id="contact">
+		<SectionContainer class:list={'items-center'} id="contact">
 			<Contact/>
 		</SectionContainer>
 

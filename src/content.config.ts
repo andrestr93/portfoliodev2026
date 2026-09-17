@@ -7,7 +7,7 @@ const mesAnio = z
     .regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'Formato esperado: YYYY-MM (ej. "2022-03")');
 
 const experience = defineCollection({
-    loader: file('src/data.json'),
+    loader: file('src/data/experience.json'),
     schema: z.object({
         company: z.string().min(1),
         role: z.string().min(1),
@@ -20,4 +20,18 @@ const experience = defineCollection({
     }),
 });
 
-export const collections = { experience };
+const education = defineCollection({
+    loader: file('src/data/education.json'),
+    schema: ({ image }) => z.object({
+        academic: z.string().min(1),
+        title: z.string().min(1),
+        startDate: mesAnio,
+        endDate: mesAnio.nullable(),
+        location: z.string().optional(),
+        certificate: image().optional(),
+
+
+    }),
+});
+
+export const collections = { experience, education };

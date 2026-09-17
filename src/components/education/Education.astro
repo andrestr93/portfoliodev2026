@@ -1,21 +1,20 @@
 ---
+import type { TimelineProps as Props } from '../../types/education';
+import EducationItem from "./components/EducationItem.astro";
 
-import { Image } from "astro:assets";
-import certificateTailwind from './../assets/images/certificateTailwind.png'; 
-import certificateAngular from './../assets/images/certificate-rxjs.png'; 
-import certificateRxjs from './../assets/images/certificate-rxjs.png'; 
-
-
+const {education} = Astro.props
 
 
 
 ---
-<span>educación</span>
+<span class="text-center">educación</span>
 <div class="p-5">
-    <ol class="relative border-s border-default">                  
 
+    <ol class="relative border-s border-default flex flex-col gap-7">   
+         {education.map((ed, i) => (
+      <EducationItem education={ed} isLast={i === education.length - 1} />
+    ))}
     </ol>
-
 </div>
 
 
