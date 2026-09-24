@@ -1,0 +1,4 @@
+User-agent: *
+
+Allow: /
+Sitemap: https://portfolio-andrestr93.netlify.app/sitemap-index.html

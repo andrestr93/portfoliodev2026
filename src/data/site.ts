@@ -10,6 +10,6 @@ export const site = {
     available: true,
     socials: {
         github: 'https://github.com/andrestr93',
-        linkedin: 'https://www.linkedin.com/in/TU-USUARIO',
+        linkedin: 'https://www.linkedin.com/in/andresjesus/',
     },
 } as const;
