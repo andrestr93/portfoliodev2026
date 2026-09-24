@@ -4,7 +4,7 @@
 interface Stat {
   value: number;
   label: string;
-  suffix?: string;
+  prefix?: string;
 }
 interface Props {
   stats: Stat[];
@@ -14,11 +14,11 @@ const { stats } = Astro.props;
 
 <dl class="mt-6 flex justify-center gap-10">
   {
-    stats.map(({ value, label, suffix = '' }) => (
+    stats.map(({ value, label, prefix = '' }) => (
       <div class="flex flex-col-reverse text-center">
         <dt class="text-muted mt-1 font-mono text-xs tracking-wide uppercase">{label}</dt>
-        <dd class="text-ink text-4xl font-bold tabular-nums" data-suffix={suffix} data-countup={value} >
-          {suffix}{value}
+        <dd class="text-ink text-4xl font-bold tabular-nums" data-prefix={prefix} data-countup={value} >
+          {prefix}{value}
         </dd>
       </div>
     ))
@@ -33,7 +33,7 @@ const { stats } = Astro.props;
     document.querySelectorAll<HTMLElement>('[data-countup]').forEach((el) => {
       new CountUp(el, Number(el.dataset.countup), {
         duration: 1.5,
-        suffix: el.dataset.suffix ?? '',
+        prefix: el.dataset.prefix ?? '',
         enableScrollSpy: true,
         scrollSpyOnce: true,
       });
