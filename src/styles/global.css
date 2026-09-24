@@ -3,21 +3,26 @@
 @import '@fontsource-variable/jetbrains-mono/wght.css';
 
 @theme {
-  --color-primary: #0a0e14;
-  --color-secondary: #131822;
+  /* ---- Paleta corporativa (spec §04) ---- */
+  --color-primary: #0a0e14; /* fondo primario */
+  --color-secondary: #131822; /* fondo secundario */
   --color-terciary: #1a2029;
-  --color-ink: #eaeaea;
-  --color-muted: #94a3b8;
-  --color-iris: #8b7bff;
+  --color-ink: #eaeaea; /* texto primario */
+  --color-muted: #94a3b8; /* texto secundario: 7.6:1 sobre #0A0E14 */
+  --color-accent: #10e0a0; /* esmeralda */
+  --color-iris: #8b7bff; /* violeta: 5.4:1 sobre #0A0E14 */
 
+  /* Nombres exactos que registra Fontsource (antes faltaba "Variable" en la mono) */
   --font-inter: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
 
+  /* ---- Neutros derivados ---- */
   --color-border: color-mix(in oklab, var(--color-ink) 12%, transparent);
   --color-border-strong: color-mix(in oklab, var(--color-ink) 18%, transparent);
   --color-surface-hover: color-mix(in oklab, var(--color-ink) 8%, transparent);
   --color-body: color-mix(in oklab, var(--color-ink) 65%, transparent);
 
+  /* ---- Alias usados por el timeline ---- */
   --color-default: var(--color-border);
   --color-default-medium: var(--color-border-strong);
   --color-buffer: var(--color-primary);
