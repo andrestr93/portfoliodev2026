@@ -3,12 +3,7 @@ import AnimationNumber from '../utils/components/AnimationNumber.astro';
 import Badge from '../utils/components/Badge.astro';
 import ImageProfile from './ImageProfile.astro';
 import { site } from '../data/site';
-// import { projects, yearsOfExperience } from '../utils/collections';
 
-// const stats = [
-//   { value: yearsOfExperience, label: 'Años exp.', suffix: '+' },
-//   { value: projects.length, label: 'Proyectos' },
-// ];
 ---
 
 <div class="flex flex-col items-center justify-center gap-5 px-5 py-8 text-center">
@@ -16,25 +11,28 @@ import { site } from '../data/site';
 
   <ImageProfile />
 
-  <h1 id="about-title" class="flex flex-col gap-2">
-    <span class="text-ink text-xl font-semibold">{site.name}</span>
-    <span class="text-gradient from-accent to-iris bg-linear-to-r bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
-      {site.role}
-    </span>
-  </h1>
+ <h1 id="about-title" class="flex flex-col gap-2">
+<span class="text-ink text-xl font-semibold">{site.name}</span>
+<span class="text-gradient from-accent to-iris bg-linear-to-r bg-clip-text 
+text-4xl font-bold text-transparent md:text-5xl">
+{site.role}
+</span>
+</h1>
 
   <p class="text-muted max-w-xl text-base leading-7">
     {site.description}
   </p>
 
-  <div class="flex flex-wrap justify-center gap-3">
-    <a href="#projects" class="bg-accent text-primary rounded-lg px-5 py-2.5 text-sm font-semibold transition hover:brightness-110">
-      Ver proyectos
-    </a>
-    <a href="#contact" class="border-border-strong text-ink hover:bg-surface-hover rounded-lg border px-5 py-2.5 text-sm font-semibold transition">
-      Contactar
-    </a>
-  </div>
+<div class="flex flex-wrap justify-center gap-3">
+<a href="#projects" class="bg-accent text-primary rounded-lg px-5 py-2.5 
+text-sm font-semibold transition hover:brightness-110">
+Ver proyectos
+</a>
+<a href="#contact" class="border-border-strong text-ink hover:bg-surface
+hover rounded-lg border px-5 py-2.5 text-sm font-semibold transition">
+Contactar
+</a>
+</div>
 
   <!-- <AnimationNumber stats={stats} /> -->
 </div>
