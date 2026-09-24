@@ -1,5 +1,6 @@
 ---
 import type { TimelineProps as Props } from '../../types/education';
+import SectionTitle from '../SectionTitle.astro';
 import EducationItem from "./components/EducationItem.astro";
 
 const {education} = Astro.props
@@ -7,14 +8,15 @@ const {education} = Astro.props
 
 
 ---
-<span class="eyebrow text-sm">educación</span>
-<div class="p-5">
-
+<SectionTitle id='education-title' eyebrow='Educación'  title='Formación y Certificados'>
     <ol class="relative border-s border-default flex flex-col gap-7">   
          {education.map((ed, i) => (
       <EducationItem education={ed} isLast={i === education.length - 1} />
     ))}
     </ol>
-</div>
+
+</SectionTitle>
+
+
 
 
