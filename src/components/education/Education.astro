@@ -14,7 +14,7 @@ const {education} = Astro.props
 
 <ol class="relative border-s border-default flex flex-col gap-7 ">   
      {education.map((ed, i) => (
-  <EducationItem education={ed} isLast={i === education.length - 1} />
+  <EducationItem education={ed} />
 ))}
 </ol>
 

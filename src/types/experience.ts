@@ -9,5 +9,5 @@ export interface TimelineProps {
 
 export interface ExperienceItemProps {
     experience: Experience;
-    isLast?: boolean;
+
 }
