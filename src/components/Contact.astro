@@ -1,9 +1,74 @@
 ---
-import SendEmail from "../utils/icons/SendEmail.astro";
 import SectionTitle from "./SectionTitle.astro";
+import { site } from '../data/site';
+import GitHubIcon from "../utils/icons/GitHubIcon.astro";
+import LinkedinIcon from "../utils/icons/LinkedinIcon.astro"
+const socials = [
+  { label: 'GitHub', href: site.socials.github, Icon: GitHubIcon },
+  { label: 'LinkedIn', href: site.socials.linkedin, Icon: LinkedinIcon },
+];
 
 
 ---
 
 <SectionTitle id="contact-title" eyebrow="Contacto" title="¿Hablamos?" subtitle="Respondo en menos de 24 horas." />
 
+<div class="flex flex-col items-center gap-6">
+  <div class="flex flex-wrap items-center justify-center gap-2">
+    <a
+      href={`mailto:${site.email}`}
+      class="border-border bg-secondary text-ink hover:border-accent rounded-xl border px-5 py-3 font-mono text-sm transition-colors"
+    >
+      {site.email}
+    </a>
+    <button
+      type="button"
+      id="copy-email"
+      data-email={site.email}
+      class="border-border text-muted hover:text-accent hover:border-accent rounded-xl border px-4 py-3 text-sm font-semibold transition-colors"
+    >
+      Copiar email
+    </button>
+  </div>
+  {/* Anuncia "Copiado" a lectores de pantalla */}
+  <p id="copy-status" class="text-accent h-5 text-sm" role="status" aria-live="polite"></p>
+
+  <ul class="flex gap-3">
+    {
+      socials.map(({ label, href, Icon }) => (
+        <li>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${label} (se abre en otra pestaña)`}
+            class="border-border text-muted hover:text-accent hover:border-accent flex size-11 items-center justify-center rounded-full border transition-colors"
+          >
+            <Icon class="size-5" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const btn = document.getElementById('copy-email');
+  const status = document.getElementById('copy-status');
+  let timer: number | undefined;
+
+  btn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.email ?? '');
+      btn.textContent = 'Copiado';
+      if (status) status.textContent = 'Email copiado al portapapeles';
+    } catch {
+      if (status) status.textContent = 'No se pudo copiar: selecciona el email y cópialo a mano';
+    }
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      btn.textContent = 'Copiar email';
+      if (status) status.textContent = '';
+    }, 2500);
+  });
+</script>

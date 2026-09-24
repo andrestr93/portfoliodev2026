@@ -6,7 +6,7 @@ export const site = {
         'Desarrollador front-end especializado en Angular y TypeScript. Construyo componentes reutilizables e interfaces rápidas y mantenibles.',
     url: 'https://portfolio-andrestr93.netlify.app',
     email: 'andres.torcuato93@hotmail.com',
-    cv: '/cv-andres-torcuato.pdf',
+    cv: '/CV-2026.pdf',
     available: true,
     socials: {
         github: 'https://github.com/andrestr93',
