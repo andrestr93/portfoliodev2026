@@ -18,6 +18,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.1",
     "countup.js": "^2.10.1",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3"
   }
 }
