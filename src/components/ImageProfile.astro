@@ -1,11 +1,12 @@
 ---
 import {Image} from 'astro:assets';
 
-import imageProfile from './../assets/images/foto.png'; // La imagen es 1600x900
+import imageProfile from './../assets/images/foto.png'; 
+import { site } from '../data/site';
 
 ---
 
 
 <div>
-    <Image class= "rounded-full" src={imageProfile} alt= "Imagen de perfil andrestr93 desarrollador web" />
+    <Image width={300} height={300} densities={[1, 2]}   class= "ring-accent/30 rounded-full ring-4   " loading= "eager" fetchpriority= "high" src={imageProfile} alt= `Foto de  ${site.name}` />
 </div>

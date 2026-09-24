@@ -1,0 +1,8 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear(); // se calcula en cada build
+---
+
+<footer class="border-border text-muted mx-auto mt-20 w-full max-w-6xl border-t py-8 text-center text-xs">
+  © {year} Hecho por {site.shortName}
+</footer>

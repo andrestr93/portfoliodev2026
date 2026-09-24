@@ -9,5 +9,5 @@ export interface TimelineProps {
 
 export interface EducationItemProps {
     education: Education;
-    isLast?: boolean;
+
 }

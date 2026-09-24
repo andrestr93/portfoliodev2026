@@ -1,23 +1,15 @@
 ---
 import type { TimelineProps as Props } from '../../types/experience';
+import SectionTitle from '../SectionTitle.astro';
 import ExperienceItem from './components/ExperienceItem.astro';
 
-const { experiences, title = 'Experiencia' } = Astro.props;
-
-
+const { experiences, title = 'Dónde he trabajado' } = Astro.props;
 ---
 
-
-
-<span class="text-center">experiencia profesional</span>
-<div class="p-5">
-
-    <ol class="relative border-s border-default flex flex-col gap-7">   
-         {experiences.map((exp, i) => (
-      <ExperienceItem experience={exp} isLast={i === experiences.length - 1} />
-    ))}
-    </ol>
-</div>
+<SectionTitle id="experience-title" eyebrow="Experiencia profesional" title={title} />
+<ol class="border-default relative ms-3 flex flex-col gap-10 border-s">
+  {experiences.map((exp) => <ExperienceItem experience={exp} />)}
+</ol>
 
 
 

@@ -1,65 +1,88 @@
 @import 'tailwindcss';
-
 @import '@fontsource-variable/inter/wght.css';
-
 @import '@fontsource-variable/jetbrains-mono/wght.css';
 
 @theme {
-  --color-primary: #0a0e14;
-  --color-secondary: #131822;
+  /* ---- Paleta corporativa (spec §04) ---- */
+  --color-primary: #0a0e14; /* fondo primario */
+  --color-secondary: #131822; /* fondo secundario */
   --color-terciary: #1a2029;
-  --color-base: #0a0e14; /* fondo primario */
-  --color-surface: #131822; /* fondo secundario */
   --color-ink: #eaeaea; /* texto primario */
-  --color-muted: #94a3b8; /* texto secundario (derivado) */
+  --color-muted: #94a3b8; /* texto secundario: 7.6:1 sobre #0A0E14 */
   --color-accent: #10e0a0; /* esmeralda */
-  --color-iris: #8b7bff; /* violeta */
+  --color-iris: #8b7bff; /* violeta: 5.4:1 sobre #0A0E14 */
 
-  --font-inter: 'Inter Variable', ui-sans-serif, system-ui;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Nombres exactos que registra Fontsource (antes faltaba "Variable" en la mono) */
+  --font-inter: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
 
-  --color-bg-primary: #0a0e14;
-  --color-bg-secondary: #131822;
-  --color-text-primary: #eaeaea;
-  --color-accent-emerald: #10e0a0;
-  --color-accent-violet: #8b7bff;
+  /* ---- Neutros derivados ---- */
+  --color-border: color-mix(in oklab, var(--color-ink) 12%, transparent);
+  --color-border-strong: color-mix(in oklab, var(--color-ink) 18%, transparent);
+  --color-surface-hover: color-mix(in oklab, var(--color-ink) 8%, transparent);
+  --color-body: color-mix(in oklab, var(--color-ink) 65%, transparent);
 
-  /* ---- Neutros derivados (los 4 que te faltaban) ---- */
-  --color-border: color-mix(in oklab, var(--color-text-primary) 12%, transparent);
-  --color-border-strong: color-mix(in oklab, var(--color-text-primary) 18%, transparent);
-  --color-surface-hover: color-mix(in oklab, var(--color-text-primary) 8%, transparent);
-  --color-text-muted: color-mix(in oklab, var(--color-text-primary) 65%, transparent);
-  /* 65% sobre #0A0E14 ≈ 6.9:1 de contraste — cumple WCAG AA */
-
-  /* ---- Alias con nomenclatura Flowbite ---- */
+  /* ---- Alias usados por el timeline ---- */
   --color-default: var(--color-border);
   --color-default-medium: var(--color-border-strong);
-  --color-buffer: var(--color-bg-primary);
-  --color-heading: var(--color-text-primary);
-  --color-body: var(--color-text-muted);
+  --color-buffer: var(--color-primary);
+  --color-heading: var(--color-ink);
+  --color-neutral-secondary-medium: var(--color-secondary);
+  --color-fg-brand-strong: var(--color-accent);
+  --color-brand-softer: color-mix(in oklab, var(--color-accent) 12%, transparent);
 
-  --color-neutral-secondary-medium: var(--color-bg-secondary);
-  --color-neutral-tertiary-medium: var(--color-surface-hover);
-  --color-neutral-tertiary: color-mix(in oklab, var(--color-accent-emerald) 45%, transparent);
-
-  --color-fg-brand-strong: var(--color-accent-emerald);
-  --color-brand-softer: color-mix(in oklab, var(--color-accent-emerald) 12%, transparent);
-  --color-brand-subtle: color-mix(in oklab, var(--color-accent-emerald) 30%, transparent);
-
-  /* ---- Radios y sombras ---- */
   --radius-base: 0.375rem;
 }
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-primary font-inter m-auto px-6 py-3 text-ink mt-18;
-    span {
-      @apply text-iris font-mono  tracking-wider uppercase;
-    }
-    h2 {
-      @apply text-2xl font-bold;
-    }
+    @apply bg-primary font-inter text-ink m-auto mt-18 px-6 py-3;
+  }
+  h2 {
+    @apply text-2xl font-bold;
+  }
+  /* Las anclas no quedan tapadas por el nav fijo (h-16) */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  /* Foco visible y coherente en toda la web */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Etiqueta pequeña sobre cada título de sección (sustituye al estilo global de <span>) */
+  .eyebrow {
+    @apply text-iris font-mono text-xs tracking-wider uppercase;
+  }
+  .pill {
+    @apply border-border text-muted inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-xs;
+  }
+}
+
+/* Degradación elegante si no hay soporte de background-clip: text (spec §03) */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .text-gradient {
+    color: var(--color-accent) !important;
+    background: none !important;
+  }
+}
+
+/* Respeta a quien pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
