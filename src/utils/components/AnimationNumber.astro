@@ -1,33 +1,42 @@
 ---
-// src/components/Stats.astro
+// Estadísticas rápidas del hero. El valor final va en el HTML (visible sin JS, para Google
+// y para lectores de pantalla); el script solo anima el conteo si el usuario no pide menos movimiento.
+interface Stat {
+  value: number;
+  label: string;
+  suffix?: string;
+}
+interface Props {
+  stats: Stat[];
+}
+const { stats } = Astro.props;
 ---
 
-
-<div class="stats flex justify-center gap-10 mt-10">
-  <div class="stat text-center">
-    <span id="stat-experiencia" class="font-inter text-4xl     tabular-nums">0</span>
-    <p class="font-mono  text-muted mt-1 text-xl tracking-wide">AÑOS EXP.</p>
-  </div>
-
-  <div class="stat text-center">
-    <span id="stat-proyectos" class="font-inter text-4xl  tabular-nums">0</span>
-    <p class="font-mono text-muted text-xl  mt-1 tracking-wide">PROYECTOS</p>
-  </div>
-
-
-</div>
+<dl class="mt-6 flex justify-center gap-10">
+  {
+    stats.map(({ value, label, suffix = '' }) => (
+      <div class="flex flex-col-reverse text-center">
+        <dt class="text-muted mt-1 font-mono text-xs tracking-wide uppercase">{label}</dt>
+        <dd class="text-ink text-4xl font-bold tabular-nums" data-suffix={suffix} data-countup={value} >
+          {suffix}{value}
+        </dd>
+      </div>
+    ))
+  }
+</dl>
 
 <script>
   import { CountUp } from 'countup.js';
 
-  const options = {
-    duration: 1.5,
-    useEasing: true,           // aplica la curva de suavizado interna de CountUp
-    enableScrollSpy: true,     // arranca solo, no hace falta IntersectionObserver
-    scrollSpyDelay: 150,       // pequeño respiro antes de empezar a contar
-    scrollSpyOnce: true,       // no se repite si vuelves a hacer scroll sobre él
-  };
-
-  new CountUp('stat-experiencia', 3, { ...options, suffix: '+' }).start();
-  new CountUp('stat-proyectos', 6, options).start();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) {
+    document.querySelectorAll<HTMLElement>('[data-countup]').forEach((el) => {
+      new CountUp(el, Number(el.dataset.countup), {
+        duration: 1.5,
+        suffix: el.dataset.suffix ?? '',
+        enableScrollSpy: true,
+        scrollSpyOnce: true,
+      });
+    });
+  }
 </script>

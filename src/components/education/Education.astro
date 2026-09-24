@@ -9,14 +9,14 @@ const {education} = Astro.props
 
 ---
 <SectionTitle id='education-title' eyebrow='Educación'  title='Formación y Certificados'>
-    <ol class="relative border-s border-default flex flex-col gap-7">   
-         {education.map((ed, i) => (
-      <EducationItem education={ed} isLast={i === education.length - 1} />
-    ))}
-    </ol>
-
+    
 </SectionTitle>
 
+<ol class="relative border-s border-default flex flex-col gap-7 ">   
+     {education.map((ed, i) => (
+  <EducationItem education={ed} isLast={i === education.length - 1} />
+))}
+</ol>
 
 
 

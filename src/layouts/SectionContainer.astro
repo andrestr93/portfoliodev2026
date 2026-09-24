@@ -1,13 +1,12 @@
 ---
 interface Props {
-id: string;
-class?: string;
-labelledby?: string;
+  id: string;
+  class?: string;
+  labelledby?: string;
 }
-const { class: className = '', id, labelledby = `${id}-title` } = 
-Astro.props;
+const { class: className = '', id, labelledby = `${id}-title` } = Astro.props;
 ---
-<section id={id} aria-labelledby={labelledby} class={`mx-auto flex w-full 
-flex-col justify-center lg:w-185 ${className}`}>
-<slot />
+
+<section id={id} aria-labelledby={labelledby} class={`mx-auto flex w-full flex-col justify-center lg:w-185 ${className}`}>
+  <slot />
 </section>

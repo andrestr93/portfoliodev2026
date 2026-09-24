@@ -1,5 +1,5 @@
 ---
-import Angular from "../utils/icons/AngularIcon.astro"
+import  AngularIcon  from "../utils/icons/AngularIcon.astro"
 import AstroIcon from "../utils/icons/AstroIcon.astro"
 import JavaScriptIcon from "../utils/icons/JavaScriptIcon.astro"
 import TypeScriptIcon from "../utils/icons/TypeScriptIcon.astro"
@@ -15,8 +15,47 @@ import SectionTitle from "./SectionTitle.astro"
 
 
 
-const stackTecnologies = [{ Icon: Angular}, { Icon: AstroIcon},{ Icon: JavaScriptIcon}, { Icon: TypeScriptIcon}, {Icon: TailwindIcon},{ Icon: GitIcon}, { Icon: GitHubIcon},{ Icon: Html5Icon}, { Icon: SassIcon} , {Icon: NodejsIcon}]
-
+const groups = [
+{
+category: 'Frontend',
+items: [
+{ name: 'Angular', Icon: AngularIcon },
+{ name: 'TypeScript', Icon: TypeScriptIcon },
+{ name: 'JavaScript', Icon: JavaScriptIcon },
+{ name: 'Astro', Icon: AstroIcon },
+{ name: 'HTML5', Icon: Html5Icon },
+{ name: 'Tailwind CSS', Icon: TailwindIcon },
+{ name: 'Sass', Icon: SassIcon },
+],
+},
+{ category: 'Backend', items: [{ name: 'Node.js', Icon: NodejsIcon }] },
+{
+category: 'Herramientas',
+items: [
+{ name: 'Git', Icon: GitIcon },
+{ name: 'GitHub', Icon: GitHubIcon },
+],
+},
+];
 
 ---
 <SectionTitle id="stack-title" eyebrow="Stack técnico" title="Tecnologías que domino "></SectionTitle>
+
+
+<div class="flex flex-col gap-6">
+  {
+    groups.map(({ category, items }) => (
+      <div class="flex flex-col items-center gap-3">
+        <h3 class="text-muted text-sm font-semibold">{category}</h3>
+        <ul class="flex flex-wrap justify-center gap-2.5">
+          {items.map(({ name, Icon }) => (
+            <li class="border-border bg-secondary text-ink flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-mono text-sm">
+              <Icon class="size-4" aria-hidden="true" />
+              {name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

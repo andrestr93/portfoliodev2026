@@ -3,7 +3,13 @@ import AnimationNumber from '../utils/components/AnimationNumber.astro';
 import Badge from '../utils/components/Badge.astro';
 import ImageProfile from './ImageProfile.astro';
 import { site } from '../data/site';
+import {yearsOfExperience } from '../utils/collections';
 
+
+const stats = [
+  { value: yearsOfExperience, label: 'Años exp.', suffix: '+' },
+  { value: 4, label: 'Proyectos' , suffix:'+' },
+];
 ---
 
 <div class="flex flex-col items-center justify-center gap-5 px-5 py-8 text-center">
@@ -34,5 +40,5 @@ Contactar
 </a>
 </div>
 
-  <!-- <AnimationNumber stats={stats} /> -->
+  <AnimationNumber stats={stats} />
 </div>
