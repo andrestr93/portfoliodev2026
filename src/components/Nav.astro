@@ -5,7 +5,6 @@ import { site } from '../data/site';
 const links: Link[] = [
   { label: 'Sobre mí', link: '#about' },
   { label: 'Stack', link: '#stack' },
-  { label: 'Proyectos', link: '#projects' },
   { label: 'Experiencia', link: '#experience' },
   { label: 'Educación', link: '#education' },
   { label: 'Contacto', link: '#contact' },
@@ -28,13 +27,20 @@ const links: Link[] = [
       }
     </ul>
 
-    <div class="flex items-center gap-2">
+    <div class=" flex gap-6 items-center ">
       <a
         href={site.cv}
         download
         class="bg-accent text-primary hidden rounded-lg px-4 py-2 text-sm font-semibold transition hover:brightness-110 sm:inline-flex"
       >
         Descargar CV
+      </a>
+      <a
+        href={site.cartaRercomendacion}
+        download
+        class="bg-amber-300 text-primary hidden rounded-lg px-4 py-2 text-sm font-semibold transition hover:brightness-110 sm:inline-flex"
+      >
+        Ver Carta de Recomendación
       </a>
 
       <button
@@ -55,20 +61,25 @@ const links: Link[] = [
     </div>
   </nav>
 
-  <ul id="nav-panel" class="border-ink/8 hidden border-t px-5 pb-5 md:hidden">
+  <ul id="nav-panel" class="border-surface-hover hidden border-t px-5 pb-5 md:hidden">
     {
       links.map((s) => (
-        <li class="border-ink/8 border-b">
+        <li class="border-surface-hover border-b">
           <a href={s.link} class="text-ink block py-3.5">
             {s.label}
           </a>
         </li>
       ))
     }
-    <li class="pt-4 sm:hidden">
+    <li class="pt-4 flex-col sm:hidden flex gap-4">
       <a href={site.cv} download class="bg-accent text-primary block rounded-lg px-4 py-3 text-center font-semibold">
         Descargar CV
       </a>
+      <a href={site.cartaRercomendacion} download class="bg-amber-300 text-primary block rounded-lg px-4 py-3 text-center font-semibold">
+        Descargar Carta de Recomendación
+      </a>
+
+      
     </li>
   </ul>
 </header>

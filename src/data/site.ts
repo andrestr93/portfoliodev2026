@@ -7,6 +7,7 @@ export const site = {
     url: 'https://portfolio-andrestr93.netlify.app',
     email: 'andres.torcuato93@hotmail.com',
     cv: '/CV-2026.pdf',
+    cartaRercomendacion: '/recomendacion.pdf',
     available: true,
     socials: {
         github: 'https://github.com/andrestr93',
