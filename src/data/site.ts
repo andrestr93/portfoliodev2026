@@ -13,4 +13,4 @@ export const site = {
         github: 'https://github.com/andrestr93',
         linkedin: 'https://www.linkedin.com/in/andresjesus/',
     },
-} as const;
+} as const; 
